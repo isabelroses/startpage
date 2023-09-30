@@ -10,10 +10,6 @@ const default_config = {
         format: "X | x",
         iconColor: "var(--accent)",
     },
-    quotes: [
-        "Stay hydrated!",
-        "You should be studying right now :/"
-    ],
     search: {
         defaultEngine: "s",
         engines: {

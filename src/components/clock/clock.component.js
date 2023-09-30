@@ -1,8 +1,7 @@
 class Clock extends Component {
   refs = {
     clock: '.clock-time',
-    icon: '.clock-icon',
-    motivation: '.motivation'
+    icon: '.clock-icon'
   };
 
   constructor() {
@@ -16,18 +15,15 @@ class Clock extends Component {
     ];
   }
 
-
   style() {
     return `
-        .clock-time, .motivation {
+        .clock-time {
             white-space: nowrap;
             font: 300 9pt 'Roboto', sans-serif;
             color: #a6adc8;
             letter-spacing: .5px;
         }
-        .motivation {
-          margin-right: 10px;
-        }
+
         .clock-icon {
             color: var(--accent);
             font-size: 10pt;
@@ -38,7 +34,6 @@ class Clock extends Component {
 
   template() {
     return `
-        <p class="motivation"></p>
         <span class="material-icons clock-icon">schedule</span>
         <p class="clock-time"></p>
     `;
@@ -46,11 +41,6 @@ class Clock extends Component {
 
   setIconColor() {
     this.refs.icon.style.color = CONFIG.clock.iconColor;
-  }
-
-  setMotivation() {
-    const quotes = CONFIG.quotes;
-    this.refs.motivation = quotes[Math.floor(quotes.length*Math.random())];
   }
 
   setTime() {
@@ -63,7 +53,6 @@ class Clock extends Component {
     this.render().then(() => {
       this.setTime();
       this.setIconColor();
-      this.setMotivation();
 
       setInterval(() => this.setTime(), 1000);
     });

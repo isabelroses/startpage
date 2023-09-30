@@ -151,7 +151,7 @@ class ConfigTab extends Component {
   }
 
   setConfig() {
-    this.refs.textarea.value =  JSON.stringify(this.config, null, 4);
+    this.refs.textarea.value = JSON.stringify(this.config, null, 4);
   }
 
   connectedCallback() {

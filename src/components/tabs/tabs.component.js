@@ -1,25 +1,25 @@
 class Links extends Component {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    static getIcon(link) {
-        const defaultColor = "#a6adc8";
-        const defaultBg = "transparent";
-        const defaultWebkitColor = "inherit";
+  static getIcon(link) {
+    const defaultColor = "#a6adc8";
+    const defaultBg = "transparent";
+    const defaultWebkitColor = "inherit";
 
-        return link.icon
-            ? `<i class="ti ti-${link.icon} link-icon"
+    return link.icon
+      ? `<i class="ti ti-${link.icon} link-icon"
             style="color: ${link.icon_color ?? defaultColor}; background: ${link.webkit_bg ?? defaultBg}; -webkit-text-fill-color: ${link.webkit_color ?? defaultWebkitColor};"></i>`
-            : "";
-    }
+      : "";
+  }
 
-    static getAll(tabName, tabs) {
-        const { categories } = tabs.find((f) => f.name === tabName);
+  static getAll(tabName, tabs) {
+    const { categories } = tabs.find((f) => f.name === tabName);
 
-        return `
+    return `
       ${categories.map(({ name, links }) => {
-            return `
+      return `
           <li>
             <h1>${name}</h1>
               <div class="links-wrapper">
@@ -28,61 +28,61 @@ class Links extends Component {
                     <a href="${link.url}">
                       ${Links.getIcon(link)}
                       ${link.name ? `<p class="link-name">${link.name}</p>` : ""
-                }
+        }
                     </a>
                 </div>`).join("")
-                }
+        }
             </div>
           </li>`;
-        }).join("")
-            }
+    }).join("")
+      }
     `;
-    }
+  }
 }
 
 class Category extends Component {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    static getBackgroundStyle(url) {
-        return `style="background-image: url(${url}); background-repeat: no-repeat;background-size: contain;"`;
-    }
+  static getBackgroundStyle(url) {
+    return `style="background-image: url(${url}); background-repeat: no-repeat;background-size: contain;"`;
+  }
 
-    static getAll(tabs) {
-        return `
+  static getAll(tabs) {
+    return `
       ${tabs.map(({ name, background_url }, index) => {
-            return `<ul class="${name}" ${Category.getBackgroundStyle(background_url)
-                } ${index == 0 ? "active" : ""}>
+      return `<ul class="${name}" ${Category.getBackgroundStyle(background_url)
+        } ${index == 0 ? "active" : ""}>
             <div class="banner"></div>
             <div class="links">${Links.getAll(name, tabs)}</div>
           </ul>`;
-        }).join("")
-            }
+    }).join("")
+      }
     `;
-    }
+  }
 }
 
 class Tabs extends Component {
-    refs = {};
+  refs = {};
 
-    constructor() {
-        super();
-        this.tabs = CONFIG.tabs;
-    }
+  constructor() {
+    super();
+    this.tabs = CONFIG.tabs;
+  }
 
-    imports() {
-        return [
-            this.resources.icons.material,
-            this.resources.icons.tabler,
-            this.resources.fonts.roboto,
-            this.resources.fonts.raleway,
-            this.resources.libs.awoo,
-        ];
-    }
+  imports() {
+    return [
+      this.resources.icons.material,
+      this.resources.icons.tabler,
+      this.resources.fonts.roboto,
+      this.resources.fonts.raleway,
+      this.resources.libs.awoo,
+    ];
+  }
 
-    style() {
-        return `
+  style() {
+    return `
       status-bar {
           bottom: -70px;
           height: 32px;
@@ -128,7 +128,7 @@ class Tabs extends Component {
           width: 100%;
           height: 100%;
           right: 100%;
-          background: #181825 url("../img/bg-10.gif") repeat left;
+          background: #181825 url("../img/banners/bg-10.gif") repeat left;
 	        transition: all .6s;
 	        # animation: scroll 25s ease-in-out infinite;
       }
@@ -229,7 +229,7 @@ class Tabs extends Component {
       .categories .link-icon {
           font-size: 27px;
           color: #a6adc8;
-          -webkit-background-clip: text; 
+          -webkit-background-clip: text;
       }
 
       .categories .link-icon + .link-name {
@@ -258,10 +258,10 @@ class Tabs extends Component {
            }
       }
     `;
-    }
+  }
 
-    template() {
-        return `
+  template() {
+    return `
       <div id="links" class="-">
 
         <div id="panels">
@@ -274,9 +274,9 @@ class Tabs extends Component {
         </div>
       </div>
     `;
-    }
+  }
 
-    connectedCallback() {
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 }
