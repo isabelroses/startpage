@@ -51,6 +51,12 @@ const default_config = {
                             icon_color: "var(--ctp-mauve)",
                         },
                         {
+                            name: "jellyfin",
+                            url: "https://tv.isabelroses.com",
+                            icon: "device-tv",
+                            icon_color: "var(--ctp-sapphire)",
+                        },
+                        {
                             name: "reddit",
                             url: "https://www.reddit.com/",
                             icon: "brand-reddit",
@@ -73,18 +79,6 @@ const default_config = {
                 {
                     name: "Self Hosted",
                     links: [
-                        {
-                            name: "jellyfin",
-                            url: "https://tv.isabelroses.com",
-                            icon: "device-tv",
-                            icon_color: "var(--ctp-sapphire)",
-                        },
-                        {
-                            name: "searxng",
-                            url: "https://search.isabelroses.com",
-                            icon: "search",
-                            icon_color: "var(--ctp-red)",
-                        },
                         {
                             name: "webmail",
                             url: "https://webmail.isabelroses.com",
@@ -129,6 +123,12 @@ const default_config = {
                             name: "nixpkgs",
                             url: "https://github.com/NixOS/nixpkgs",
                             icon: "package",
+                            icon_color: "var(--ctp-blue)",
+                        },
+                        {
+                            name: "hm options search",
+                            url: "https://mipmip.github.io/home-manager-option-search/",
+                            icon: "search",
                             icon_color: "var(--ctp-blue)",
                         },
                         {
