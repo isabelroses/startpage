@@ -41,25 +41,20 @@ class Links extends Component {
 }
 
 class Category extends Component {
-  constructor() {
-    super();
-  }
-
   static getBackgroundStyle(url) {
     return `style="background-image: url(${url}); background-repeat: no-repeat;background-size: contain;"`;
   }
 
   static getAll(tabs) {
-    return `
-      ${tabs.map(({ name, background_url }, index) => {
-      return `<ul class="${name}" ${Category.getBackgroundStyle(background_url)
-        } ${index == 0 ? "active" : ""}>
-            <div class="banner"></div>
-            <div class="links">${Links.getAll(name, tabs)}</div>
-          </ul>`;
-    }).join("")
-      }
-    `;
+    return tabs.map((tab) => {
+      const { name, background_url } = tab;
+      return `
+        <ul class="${name}" ${Category.getBackgroundStyle(background_url)}>
+          <div class="banner"></div>
+          <div class="links">${Links.getAll(name, tabs)}</div>
+        </ul>
+      `;
+    }).join("");
   }
 }
 

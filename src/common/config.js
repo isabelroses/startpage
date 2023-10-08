@@ -94,12 +94,12 @@ class Config {
    * @returns {void}
    */
   setKeybindings() {
-    document.onkeypress = ({ key }) => {
+    document.addEventListener('keydown', (event) => {
       if (document.activeElement !== document.body) return;
 
-      if (Object.keys(this.config.keybindings).includes(key))
-        Actions.activate(this.config.keybindings[key]);
-    };
+      if (Object.keys(this.config.keybindings).includes(event.key))
+        Actions.activate(this.config.keybindings[event.key]);
+    });
   }
 
   save() {

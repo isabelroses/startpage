@@ -25,9 +25,9 @@ class Component extends HTMLElement {
     this.shadow = this.attachShadow({ mode: 'open' });
   }
 
-  style()    { return null; }
+  style() { return null; }
   template() { return null; }
-  imports()  { return []; }
+  imports() { return []; }
 
   /**
    * Reference an external css file
@@ -70,9 +70,11 @@ class Component extends HTMLElement {
    * @returns {string} html
    */
   async buildHTML() {
-    return await this.loadStyles() +
-           await this.template();
+    const styles = await this.loadStyles();
+    const template = this.template();
+    return styles + template;
   }
+
 
   /**
    * Create a reference for manipulating DOM elements.
@@ -99,9 +101,10 @@ class Component extends HTMLElement {
     });
   }
 
-  async render() {
+  render = async () => {
     this.shadow.innerHTML = await this.buildHTML();
     this.refs = this.createRef();
     RenderedComponents[this.localName] = this;
   }
+
 }

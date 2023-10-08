@@ -233,11 +233,9 @@ class Statusbar extends Component {
   }
 
   handleWheelScroll(event) {
-    if (!event) return;
+    const { target, wheelDelta } = event ?? {};
 
-    let { target, wheelDelta } = event;
-
-    if (target.shadow && target.shadow.activeElement) return;
+    if (target?.shadow?.activeElement) return;
 
     let activeTab = -1;
     this.refs.tabs.forEach((tab, index) => {
@@ -256,11 +254,9 @@ class Statusbar extends Component {
   }
 
   handleKeyPress(event) {
-    if (!event) return;
+    const { target, key } = event ?? {};
 
-    let { target, key } = event;
-
-    if (target.shadow && target.shadow.activeElement) return;
+    if (target?.shadow?.activeElement) return;
 
     if (
       Number.isInteger(parseInt(key)) &&

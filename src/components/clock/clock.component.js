@@ -46,7 +46,7 @@ class Clock extends Component {
   setTime() {
     const date = new Date();
 
-    this.refs.clock = date.strftime(CONFIG.clock.format);
+    this.refs.clock = strftime(date, CONFIG.clock.format);
   }
 
   connectedCallback() {
