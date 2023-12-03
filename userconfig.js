@@ -50,11 +50,17 @@ const default_config = {
                             icon: "brand-twitch",
                             icon_color: "var(--ctp-mauve)",
                         },
+                        // {
+                        //     name: "jellyfin",
+                        //     url: "https://tv.isabelroses.com",
+                        //     icon: "device-tv",
+                        //     icon_color: "var(--ctp-sapphire)",
+                        // },
                         {
-                            name: "jellyfin",
-                            url: "https://tv.isabelroses.com",
-                            icon: "device-tv",
-                            icon_color: "var(--ctp-sapphire)",
+                            name: "mastodon",
+                            url: "https://tech.lgbt",
+                            icon: "brand-mastodon",
+                            icon_color: "var(--ctp-pink)",
                         },
                         {
                             name: "reddit",
@@ -91,6 +97,12 @@ const default_config = {
                             icon: "letter-v",
                             icon_color: "var(--ctp-blue)",
                         },
+                        {
+                            name: "izcloud",
+                            url: "https://cloud.isabelroses.com/apps/dashboard/",
+                            icon: "brand-nextcloud",
+                            icon_color: "var(--ctp-blue)",
+                        },
                     ],
                 },
             ],
@@ -121,7 +133,7 @@ const default_config = {
                     links: [
                         {
                             name: "nixpkgs",
-                            url: "https://github.com/NixOS/nixpkgs",
+                            url: "https://search.nixos.org/packages?channel=unstable",
                             icon: "package",
                             icon_color: "var(--ctp-blue)",
                         },
@@ -136,12 +148,29 @@ const default_config = {
                             url: "https://nixos.wiki/",
                             icon: "book",
                             icon_color: "var(--ctp-blue)",
+                        }
+                    ],
+                },
+                {
+                    name: "misc",
+                    links: [
+                        {
+                            name: "wakatime",
+                            url: "https://wakapi.isabelroses.com",
+                            icon: "package",
+                            icon_color: "var(--ctp-green)",
                         },
                         {
-                            name: "flakes - this cute world",
-                            url: "https://nixos-and-flakes.thiscute.world/nixos-with-flakes",
-                            icon: "snowflake",
-                            icon_color: "var(--ctp-blue)",
+                            name: "grafana",
+                            url: "https://graph.isabelroses.com",
+                            icon: "graph",
+                            icon_color: "var(--ctp-peach)",
+                        },
+                        {
+                            name: "uptime kuma",
+                            url: "https://status.isabelroses.com",
+                            icon: "arrow-narrow-up",
+                            icon_color: "var(--ctp-red)",
                         }
                     ],
                 }
@@ -165,6 +194,12 @@ const default_config = {
                             url: "https://anichart.net",
                             icon: "letter-a",
                             icon_color: "var(--ctp-teal)",
+                        },
+                        {
+                            name: "livechart.me",
+                            url: "https://livechart.me",
+                            icon: "player-record-filled",
+                            icon_color: "var(--ctp-red)",
                         }
                     ],
                 },
