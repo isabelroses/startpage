@@ -194,7 +194,6 @@ class Statusbar extends Component {
                 <ul class="- indicator"></ul>
                 <div class="+ widgets col-end">
                     <current-time class="+ widget"></current-time>
-                    <weather-forecast class="+ widget weather"></weather-forecast>
                 </div>
             </cols>
         </div>`;
@@ -212,7 +211,7 @@ class Statusbar extends Component {
       if (CONFIG.config.fastlink) {
         window.location.href = CONFIG.config.fastlink;
       }
-    }
+    };
 
     if (CONFIG.openLastVisitedTab) {
       window.onbeforeunload = () => this.saveCurrentTab();
@@ -281,8 +280,9 @@ class Statusbar extends Component {
     const categoriesCount = this.externalRefs.categories.length;
 
     for (let i = 0; i <= categoriesCount; i++) {
-      this.refs.indicator.innerHTML += `<li tab-index=${i} ${i == 0 ? "active" : ""
-        }></li>`;
+      this.refs.indicator.innerHTML += `<li tab-index=${i} ${
+        i == 0 ? "active" : ""
+      }></li>`;
     }
   }
 

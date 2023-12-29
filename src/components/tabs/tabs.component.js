@@ -10,7 +10,11 @@ class Links extends Component {
 
     return link.icon
       ? `<i class="ti ti-${link.icon} link-icon"
-            style="color: ${link.icon_color ?? defaultColor}; background: ${link.webkit_bg ?? defaultBg}; -webkit-text-fill-color: ${link.webkit_color ?? defaultWebkitColor};"></i>`
+            style="color: ${link.icon_color ?? defaultColor}; background: ${
+        link.webkit_bg ?? defaultBg
+      }; -webkit-text-fill-color: ${
+        link.webkit_color ?? defaultWebkitColor
+      };"></i>`
       : "";
   }
 
@@ -18,24 +22,27 @@ class Links extends Component {
     const { categories } = tabs.find((f) => f.name === tabName);
 
     return `
-      ${categories.map(({ name, links }) => {
-      return `
+      ${
+      categories.map(({ name, links }) => {
+        return `
           <li>
             <h1>${name}</h1>
               <div class="links-wrapper">
-              ${links.map((link) => `
+              ${
+          links.map((link) => `
                   <div class="link-info">
                     <a href="${link.url}">
                       ${Links.getIcon(link)}
-                      ${link.name ? `<p class="link-name">${link.name}</p>` : ""
-        }
+                      ${
+            link.name ? `<p class="link-name">${link.name}</p>` : ""
+          }
                     </a>
                 </div>`).join("")
         }
             </div>
           </li>`;
-    }).join("")
-      }
+      }).join("")
+    }
     `;
   }
 }
@@ -92,11 +99,11 @@ class Tabs extends Component {
       }
 
       .nav {
-          color: #fff;
+          color: var(--ctp-text);
       }
 
       #panels {
-          border-radius: 5px 0 0 5px;
+          border-radius: 5px;
           width: 90%;
           max-width: 1200px;
           height: 450px;
@@ -114,7 +121,7 @@ class Tabs extends Component {
           height: 100%;
           overflow: hidden;
           position: relative;
-          border-radius: 10px 0 0 10px;
+          border-radius: 10px;
       }
 
       .categories ul {
